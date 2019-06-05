@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">iPay</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="ipay">iPay</string>
+    <string name="username">Username</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="phone">Phone</string>
+    <string name="password">Password</string>
+    <string name="password_check">Password Check</string>
+    <string name="signup">SIGNUP</string>
+    <string name="already_have_an_account_login_here">Already have an account Login Here</string>
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_an_account">Dont have an account</string>
+    <string name="upload_profile_picture">Upload Profile Picture</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_transaction">New Transaction</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="logout">Logout</string>
+    <string name="cash">Cash</string>
+    <string name="online_payment">Online Payment</string>
+</resources>

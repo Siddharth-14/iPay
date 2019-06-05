@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".PayFragment">
+
+    <TextView
+        android:id="@+id/tv_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="127dp"
+        android:fontFamily="@font/montserratbold"
+        android:text="Pay"
+        android:textColor="@color/colorText"
+        android:textSize="85sp" />
+
+    <TextView
+        android:id="@+id/tv_dollor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="309dp"
+        android:fontFamily="@font/montserratregular"
+        android:text="Rs"
+        android:textColor="@color/colorText"
+        android:textSize="45sp" />
+
+    <EditText
+        android:id="@+id/et_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_pay"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="55dp"
+        android:layout_toEndOf="@+id/tv_dollor"
+        android:fontFamily="@font/montserratbold"
+        android:hint="0"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        android:textSize="45sp" />
+
+    <EditText
+        android:id="@+id/et_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_pay"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="-39dp"
+        android:layout_marginTop="162dp"
+        android:layout_toEndOf="@+id/tv_dollor"
+        android:background="@drawable/edittext_background"
+        android:fontFamily="@font/montserratbold"
+        android:hint="What is this for?"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textColorHint="@color/colorText"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:background="@color/colorText"
+        android:elevation="6dp"
+        android:padding="16dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_send_white_24dp"
+        android:textAlignment="center" />
+
+</RelativeLayout>

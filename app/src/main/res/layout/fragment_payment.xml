@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".PaymentFragment">
+
+    <Button
+        android:id="@+id/bt_cash"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_style"
+        android:text="@string/cash"
+        android:textColor="@color/colorDarkText"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:fontFamily="@font/montserratbold"/>
+
+    <Button
+        android:id="@+id/bt_online_payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_style"
+        android:text="@string/online_payment"
+        android:textColor="@color/colorDarkText"
+        android:textSize="20dp"
+        android:padding="8dp"
+        android:fontFamily="@font/montserratbold"/>
+
+</LinearLayout>
