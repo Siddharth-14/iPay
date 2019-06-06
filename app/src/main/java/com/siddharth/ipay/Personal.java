@@ -1,16 +1,17 @@
 package com.siddharth.ipay;
 
 public class Personal {
-    String username,email,phone,password;
+    String username, email, phone, password, image;
 
     public Personal() {
     }
 
-    public Personal(String username, String email, String phone, String password) {
+    public Personal(String username, String email, String phone, String password, String image) {
         this.username = username;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.image = image;
     }
 
     public String getUsername() {
@@ -45,4 +46,11 @@ public class Personal {
         this.password = password;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

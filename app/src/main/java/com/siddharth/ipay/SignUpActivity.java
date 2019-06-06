@@ -1,21 +1,16 @@
 package com.siddharth.ipay;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +22,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,11 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.File;
-import java.io.IOException;
-
-import id.zelory.compressor.Compressor;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 
@@ -56,6 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mPhone;
     private EditText mPassword;
     private EditText mPasswordcheck;
+    StorageReference filepath;
 
     private StorageReference mStorageRef;
     private FirebaseAuth mAuth;
@@ -83,15 +73,16 @@ public class SignUpActivity extends AppCompatActivity {
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkPermission()) {
-                    Intent intent = new Intent(Intent.ACTION_PICK);
-                    intent.setType("image/*");
-                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), GALLERY_INTENT);
-                } else {
-                    requestPermission();
-                }
+
             }
         });
+        if (checkPermission()) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), GALLERY_INTENT);
+        } else {
+            requestPermission();
+        }
     }
 
     @Override
@@ -101,13 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
             mProgressDialog.setMessage("Uploading...");
             mProgressDialog.show();
             Uri uri = data.getData();
-            File compressedImageFile;
-            StorageReference filepath = mStorageRef.child(mEmail.getText().toString()).child("Profile Photo");
-            try {
-                compressedImageFile = new Compressor(this).compressToFile(new File(data.getData().getPath()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            filepath = mStorageRef.child(mEmail.getText().toString()).child("Profile Photo");
             filepath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -174,6 +159,7 @@ public class SignUpActivity extends AppCompatActivity {
                                             Toast.makeText(getApplicationContext(), "Username exists", Toast.LENGTH_LONG).show();
                                         }else{
                                             DatabaseReference myRefchild = myRef.child(person.getPhone());
+                                            myRefchild.child("Phone").setValue(person.getPhone());
                                             myRefchild.child("Email").setValue(person.getEmail());
                                             myRefchild.child("Password").setValue(person.getPassword());
                                             myRefchild.child("Username").setValue(person.getUsername());
