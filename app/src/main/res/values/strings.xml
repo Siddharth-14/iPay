@@ -20,4 +20,6 @@
     <string name="logout">Logout</string>
     <string name="cash">Cash</string>
     <string name="online_payment">Online Payment</string>
+    <string name="pay">Pay</string>
+    <string name="rs">Rs</string>
 </resources>

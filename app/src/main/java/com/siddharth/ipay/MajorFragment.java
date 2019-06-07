@@ -1,5 +1,6 @@
 package com.siddharth.ipay;
 
+import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -7,7 +8,6 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,6 +36,8 @@ public class MajorFragment extends Fragment {
     List<String> namelist = new ArrayList<String>();
     List<Contact> finallist = new ArrayList<Contact>();
     MyRecyclerViewAdapter adapter;
+
+
     public MajorFragment() {
 
     }
