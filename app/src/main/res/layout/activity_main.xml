@@ -5,6 +5,19 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/bt_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_style"
+        android:text="Logout"
+        android:textColor="@color/colorDarkText"
+        android:textSize="20dp" />
+
     <FrameLayout
         android:id="@+id/main_recyclerview"
         android:layout_weight="0.8"
@@ -16,10 +29,26 @@
         android:id="@+id/bt_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/button_style"
         android:text="History"
         android:textColor="@color/colorDarkText"
         android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/bt_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_style"
+        android:text="Requests"
+        android:textColor="@color/colorDarkText"
+        android:textSize="20dp" />
+
 
 </LinearLayout >

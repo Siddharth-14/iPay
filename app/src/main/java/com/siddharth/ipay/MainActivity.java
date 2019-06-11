@@ -16,19 +16,36 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseUser mAuth;
     Button mHistory;
+    Button mRequest;
+    Button mLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance().getCurrentUser();
         mHistory = (Button) findViewById(R.id.bt_history);
+        mRequest = (Button) findViewById(R.id.bt_request);
+        mLogout = (Button) findViewById(R.id.bt_logout);
         mHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), History.class));
             }
         });
-        mAuth = FirebaseAuth.getInstance().getCurrentUser();
+        mRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Request.class));
+            }
+        });
+        mLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                finish();
+            }
+        });
         if (mAuth == null) {
             Intent intent = new Intent(this,SignUpActivity.class);
             startActivity(intent);

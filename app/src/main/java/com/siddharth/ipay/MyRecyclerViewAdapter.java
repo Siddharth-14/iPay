@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,10 +26,12 @@ import java.util.List;
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
     private List<Contact> mData;
+    int i = 0;
     private LayoutInflater mInflater;
     private Context context;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference().child("Payment");
+    DatabaseReference myRefReq = database.getReference().child("Request");
     Personal person = new Personal();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -80,7 +81,21 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.btn_request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "Request", Toast.LENGTH_LONG).show();
+                myRefReq.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        DatabaseReference myRefchild = myRefReq.child(movie.getNumber()).child(String.valueOf(i));
+                        i++;
+                        myRefchild.child("Sender").setValue(mAuth.getCurrentUser().getEmail());
+                        myRefchild.child("Name").setValue(movie.getName());
+                        myRefchild.child("Amount").setValue(holder.et_amount.getText().toString().trim());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
         });
     }
