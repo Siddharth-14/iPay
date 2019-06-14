@@ -73,16 +73,16 @@ public class SignUpActivity extends AppCompatActivity {
         mSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (checkPermission()) {
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setType("image/*");
+                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), GALLERY_INTENT);
+                } else {
+                    requestPermission();
+                }
             }
         });
-        if (checkPermission()) {
-            Intent intent = new Intent(Intent.ACTION_PICK);
-            intent.setType("image/*");
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), GALLERY_INTENT);
-        } else {
-            requestPermission();
-        }
+
     }
 
     @Override

@@ -51,7 +51,7 @@ public class SignInActivity extends AppCompatActivity {
             Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
             return;
         }
-        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.setMessage("Login in Please Wait...");
         progressDialog.show();
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

@@ -32,7 +32,8 @@ public class History extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot d : dataSnapshot.getChildren()) {
-                        HistoryModel his = new HistoryModel(d.child("Receiver").getValue().toString(), d.child("Amount").getValue().toString());
+                        HistoryModel his = new HistoryModel(d.child("Receiver").getValue().toString(),
+                                d.child("Amount").getValue().toString());
                         historylist.add(his);
                     }
                 }

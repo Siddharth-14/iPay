@@ -59,7 +59,6 @@ public class MajorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_major, container, false);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         progressBar = new ProgressDialog(context);
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressBar.setMessage("Loading....");
